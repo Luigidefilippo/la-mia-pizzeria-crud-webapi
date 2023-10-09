@@ -1,0 +1,63 @@
+﻿@page
+@model la_mia_pizzeria_static.Views.Home.MenuModel
+@{
+    Layout = null;
+}
+@{
+    List<Pizza> adminPizzaList = new List<Pizza>();
+    adminPizzaList.Add(new Pizza(1, "Margherita", "Pomodoro, fior di latte e basilico", "PANICPIZZA.jpg", 12.50f));
+    adminPizzaList.Add(new Pizza(2, "Diavola", "Pomodoro, fior di latte e piccante", "PANICPIZZA (1).jpg", 14.50f));
+    adminPizzaList.Add(new Pizza(3, "Saporita", "Fior di latte, crudo, rucole e scaglie di parmigiano", "PANICPIZZA (2).jpg", 22.50f));
+    adminPizzaList.Add(new Pizza(4, "Funghi", "Fior di latte, funghi e prosciutto cotto", "PANICPIZZA (3).jpg", 33.50f));
+
+
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+	<link  rel="stylesheet" href="~/css/userpage.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+	<!-- header section -->
+	@Html.Partial("_Sidebar")
+    <div class="container mt-5">
+        <h1>Menu delle Pizze</h1>
+        <a class=" btn btn-primary " href="@Url.Action("CreatePizza", "Pizza")">
+            Add New Item
+        </a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Immagine</th>
+                    <th scope="col">Titolo</th>
+                    <th scope="col">Descrizione</th>
+                    <th scope="col">Prezzo</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Pizza pizza in adminPizzaList)
+                {
+                    <tr>
+                        <th scope="row">@pizza.Id</th>
+                        <td><img class="w-25" src="~/img/PANICPIZZA (1).png" alt="Margherita" /></td>
+                        <td>@pizza.Name</td>
+                        <td>@pizza.Description</td>
+                        <td>@pizza.Price</td>
+                        <td>
+                            <a class="btn btn-primary" href="@Url.Action("Details", "Pizza", new{id=pizza.Id})">Dettagli della pizza</a>
+                        </td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
