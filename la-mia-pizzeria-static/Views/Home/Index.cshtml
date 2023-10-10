@@ -104,13 +104,13 @@
 
 	<!-- menu section -->
 
-	<section class="menu" id="menu">
+	@* <section class="menu" id="menu">
 		<div class="main-text">
 			<h2>Most Popular Pizza</h2>
 			<p>We have selected for You<br> the most exquisite tastes around the world</p>
-		</div>
+		</div> *@
 
-		<div class="menu-content">
+		@* <div class="menu-content">
 			<div class="row">
 				<img src="img/PANICPIZZA.png" alt="main-product1">
 				<div class="menu-text">
@@ -188,7 +188,66 @@
 					<i class="fa-solid fa-star" style="color: #ffea05;"></i>
 				</div> 
 			</div>
+		</div> *@
+
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<div class="d-flex justify-content-between align-items-center">
+                    <h1 class="m-3">Most Popular Pizza</h1>
+					</div>
+					<div class="container">
+					<p>We have selected for You<br> the most exquisite tastes around the world</p>
+					</div>
+				
+					<div>
+					<input type="text"
+						   id="cerca"
+						   class="form-control"
+						   placeholder="Cerca una pizza" />
+					</div>
+				</div>
+			</div>
+
+			<div id="pizza-table">
+				<table class="table">
+					<thead>
+						<tr>
+
+							<th>
+								ID
+							</th>
+							<th>
+								Nome
+							</th>
+							<th>
+								Descrizione
+							</th>
+							<th>
+								Prezzo
+							</th>
+						</tr>
+					</thead>
+
+					<tbody id="pizze">
+						@* qui mettiamo le pizze.... *@
+					</tbody>
+				</table>
+			</div>
+
+			<div id="no-pizze" class="d-none">
+				<h2>
+					Non abbiamo inserito ancora pizze nel menù
+				</h2>
+			</div>
+
 		</div>
+
+		@section Scripts{
+			<script type="text/javascript" src="~/js/site.js">
+
+			</script>
+		}
 
 	</section>
 	<!-- contact section -->
